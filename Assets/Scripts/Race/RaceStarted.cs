@@ -25,12 +25,6 @@ public class RaceStarted : MonoBehaviour
         _enemyMover.Finished-=EnemyFinish;
     }
 
-    private void Start()
-    {
-        //GameStoper.StopTime();
-
-    }
-
     private void ChangeCountCircle(int id)
     {
         if (id==1)
