@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
-  - component: {fileID: 1134143622286321492}
+  - component: {fileID: 510928407397168842}
   m_Layer: 0
   m_Name: Natures_Big Tree
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1134143622286321492
-CapsuleCollider:
+--- !u!65 &510928407397168842
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,8 +102,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.8834567
-  m_Height: 6.7765555
-  m_Direction: 1
-  m_Center: {x: -0.1309421, y: 2.7297156, z: -0.33714724}
+  serializedVersion: 3
+  m_Size: {x: 1.8228992, y: 6.5316367, z: 2.1209924}
+  m_Center: {x: 0.014429629, y: 2.852175, z: -0.033405423}

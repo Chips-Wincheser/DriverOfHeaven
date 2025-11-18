@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     private const string Vertical = "Vertical";
 
     public event Action Brakeing;
+    public event Action UnBrakeing;
     public event Action<float,float> Ridesing;
 
     private void Update()
@@ -28,6 +29,11 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKey(CodeKeySpace))
         {
             Brakeing?.Invoke();
+        }
+
+        if (Input.GetKeyUp(CodeKeySpace))
+        {
+            UnBrakeing?.Invoke();
         }
     }
 }

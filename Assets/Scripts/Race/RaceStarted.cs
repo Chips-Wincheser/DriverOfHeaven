@@ -9,12 +9,14 @@ public class RaceStarted : MonoBehaviour
 
     private bool _enemyIsFinished;
     private int _circlePlayer;
+    private int _circleEnemy;
 
     public event Action LevleEnded;
 
     private void OnEnable()
     {
         _circlePlayer = -1;
+        _circleEnemy = -1;
         _carDetected.PlayerCircleCompleted += ChangeCountCircle;
         _enemyMover.Finished+=EnemyFinish;
     }
@@ -31,6 +33,11 @@ public class RaceStarted : MonoBehaviour
         {
             _circlePlayer++;
         }
+
+        if (id == 0)
+        {
+            _circleEnemy++;
+        }
     }
 
     private void EnemyFinish()
@@ -40,7 +47,7 @@ public class RaceStarted : MonoBehaviour
 
     private void Update()
     {
-        if(_enemyIsFinished || _circlePlayer ==_countCircle)
+        if(_circleEnemy==_countCircle || _circlePlayer ==_countCircle)
         {
             LevleEnded.Invoke();
             GameStoper.StopTime();

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    [SerializeField] private Spline _spline;
     [SerializeField] private float _speed;
     [SerializeField] private int _countCycles;
 
@@ -12,6 +11,7 @@ public class EnemyMover : MonoBehaviour
     private float _splineRate = 0f;
     private Transform _transform;
 
+    public Spline Spline;
     public event Action Finished;
 
     private void Awake()
@@ -22,13 +22,13 @@ public class EnemyMover : MonoBehaviour
     private void Update()
     {
         if (_currentCycle >= _countCycles)
-            Finished.Invoke();
+            return;
 
         _splineRate += _speed * Time.deltaTime;
 
-        if (_splineRate >= _spline.nodes.Count - 1)
+        if (_splineRate >= Spline.nodes.Count - 1)
         {
-            _splineRate -= (_spline.nodes.Count - 1);
+            _splineRate -= (Spline.nodes.Count - 1);
             _currentCycle++;
         }
 
@@ -37,7 +37,7 @@ public class EnemyMover : MonoBehaviour
 
     private void Place()
     {
-        CurveSample sample = _spline.GetSample(_splineRate);
+        CurveSample sample = Spline.GetSample(_splineRate);
 
         _transform.localPosition = sample.location;
         _transform.localRotation = sample.Rotation;

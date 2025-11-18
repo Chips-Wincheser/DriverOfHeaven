@@ -1692,6 +1692,14 @@ PrefabInstance:
       propertyPath: _mover
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2286171356260945830, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2286171356260945830, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
+      propertyPath: _playerInput
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3638911070570068518, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
       propertyPath: m_Name
       value: Simple Retro Car
@@ -1751,6 +1759,8 @@ PrefabInstance:
     - {fileID: 3159903107441939955, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
     - {fileID: 6869751210019816162, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
     - {fileID: 1602611529597437890, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
+    - {fileID: 541119218252336417, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
+    - {fileID: 2286171356260945830, guid: 0830086465bbffd4ab64ee6fc8c82d74, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -4747,6 +4757,7 @@ GameObject:
   - component: {fileID: 1069742014}
   - component: {fileID: 1069742013}
   - component: {fileID: 1069742012}
+  - component: {fileID: 1069742015}
   m_Layer: 5
   m_Name: StartB (1)
   m_TagString: Untagged
@@ -4817,7 +4828,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1069742013}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1069742015}
+        m_TargetAssemblyTypeName: SceneLevelLoader, Assembly-CSharp
+        m_MethodName: LoaderScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1069742013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4856,6 +4879,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069742010}
   m_CullTransparentMesh: 1
+--- !u!114 &1069742015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069742010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057299e7812e9bc48aff6cd3c403738a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _indexLevl: 1
 --- !u!1 &1079310225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7330,6 +7366,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527436635}
   m_CullTransparentMesh: 1
+--- !u!1 &1545138076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545138079}
+  - component: {fileID: 1545138078}
+  - component: {fileID: 1545138077}
+  m_Layer: 0
+  m_Name: GameLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1545138077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545138076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 357d94c1b3d502f41ba5fc8a33c9fc4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameLoader: {fileID: 1545138078}
+  _textMoney: {fileID: 45419876}
+  _textLevle: {fileID: 605637018}
+--- !u!114 &1545138078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545138076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a7a7b4378011d439f817943abe87e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1545138079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545138076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0424573, y: 10.986812, z: -5.7818856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1597082937
 GameObject:
   m_ObjectHideFlags: 0
@@ -9401,3 +9497,4 @@ SceneRoots:
   - {fileID: 1356850284}
   - {fileID: 1768051638}
   - {fileID: 976271527}
+  - {fileID: 1545138079}

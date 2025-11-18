@@ -15,6 +15,10 @@ public class Mover : MonoBehaviour
     [SerializeField] private float _brakeSpeed = 10000f;
     [SerializeField] private float _naturalDrag = 0.5f;
 
+    [Range(10f, 300f)]
+    [SerializeField] private float _maxSpeedKmh = 50f;
+
+    private float _speedConversionFactor = 3.6f;
     private float _currentBrake;
 
     private Rigidbody _rigidbody;
@@ -22,6 +26,7 @@ public class Mover : MonoBehaviour
     private Single _acceleration;
     private Single _streering;
 
+    public float Speed { get; private set; }
     public event Action<WheelCollider[]> WheelUpdated;
 
     private void Awake()
@@ -36,19 +41,36 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Speed = GetSpeed();
+
         foreach (var wheel in _rearWheels)
         {
-            wheel.motorTorque =_acceleration * _torque;
+            if (Speed < _maxSpeedKmh || _acceleration < 0f)
+            {
+                wheel.motorTorque = _acceleration * _torque;
+            }
+            else
+            {
+                wheel.motorTorque = 0f;
+            }
         }
-        foreach (var wheel in _frontWheels)
+
+        WheelCollider[] array = _frontWheels;
+
+        for (int i = 0; i < array.Length; i++)
         {
-            wheel.steerAngle = _streering * _maxAngle;
+            array[i].steerAngle = _streering * _maxAngle;
         }
 
         ApplyToWheels(_rearWheels);
         ApplyToWheels(_frontWheels);
 
         WheelUpdated?.Invoke(_frontWheels);
+    }
+
+    private float GetSpeed()
+    {
+        return Mathf.Round(_rigidbody.velocity.magnitude * _speedConversionFactor * 10f) / 10f;
     }
 
     private void ApplyToWheels(WheelCollider[] wheels)
@@ -75,13 +97,5 @@ public class Mover : MonoBehaviour
         {
             _currentBrake = 0f;
         }
-    }
-
-    public void ProcessBreak()
-    {
-        _currentBrake += _brakeSpeed * Time.fixedDeltaTime;
-
-        if (_currentBrake > _maxBrake)
-            _currentBrake = _maxBrake;
     }
 }
