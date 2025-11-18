@@ -11,13 +11,13 @@ public class CarSpawner : MonoBehaviour
 
     public event Action<Mover> CarSpawned;
 
-    private void Awake()
+    private void Start()
     {
         Mover car = Instantiate(_carsPlayer[_gameLoader.CarId],transform.position,Quaternion.identity);
 
         EnemyMover carEnemy = Instantiate(_carsEnemy[_gameLoader.Level-1], _splineEnemy.transform.position, Quaternion.identity);
         carEnemy.Spline = _splineEnemy;
         carEnemy.transform.SetParent(_splineEnemy.transform);
-        CarSpawned.Invoke(car);
+        CarSpawned?.Invoke(car);
     }
 }

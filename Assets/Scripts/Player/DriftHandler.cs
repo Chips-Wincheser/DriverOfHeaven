@@ -10,9 +10,6 @@ public class DriftHandler : MonoBehaviour
     private WheelFrictionCurve[] _originalRearFriction;
     private float _driftingAxis = 0f;
     private bool _handbrakePressedThisFrame = false;
-    private bool _isTractionLocked = false;
-    private float _driftSidewaysThreshold = 2.5f;
-    private bool _isDrifting=false;
 
     private Rigidbody _rigidbody;
 
@@ -43,10 +40,6 @@ public class DriftHandler : MonoBehaviour
         {
             RecoverTraction();
         }
-        else
-        {
-            _isTractionLocked = true;
-        }
 
         _handbrakePressedThisFrame = false;
     }
@@ -55,7 +48,6 @@ public class DriftHandler : MonoBehaviour
     {
         if (_driftingAxis <= 0f)
         {
-            _isTractionLocked = false;
             return;
         }
 
@@ -70,7 +62,6 @@ public class DriftHandler : MonoBehaviour
                 curve.extremumSlip = _originalRearFriction[i].extremumSlip * handbrakeDriftMultiplier * _driftingAxis;
                 _rearWheels[i].sidewaysFriction = curve;
             }
-            _isTractionLocked = true;
         }
         else
         {
@@ -81,8 +72,6 @@ public class DriftHandler : MonoBehaviour
                     _rearWheels[i].sidewaysFriction = _originalRearFriction[i];
                 }
             }
-            _isTractionLocked = false;
-            _isDrifting = false;
         }
     }
 
@@ -94,15 +83,6 @@ public class DriftHandler : MonoBehaviour
         _driftingAxis = Mathf.Clamp01(_driftingAxis);
 
         float localVelocityX = transform.InverseTransformDirection(_rigidbody.velocity).x;
-
-        if (Mathf.Abs(localVelocityX) > _driftSidewaysThreshold)
-        {
-            _isDrifting = true;
-        }
-        else
-        {
-            _isDrifting = false;
-        }
 
         if (_rearWheels != null && _rearWheels.Length == _originalRearFriction.Length)
         {

@@ -11,8 +11,6 @@ public class Mover : MonoBehaviour
 
     [SerializeField] private float _torque;
     [SerializeField] private float _maxAngle;
-    [SerializeField] private float _maxBrake = 3000f;
-    [SerializeField] private float _brakeSpeed = 10000f;
     [SerializeField] private float _naturalDrag = 0.5f;
 
     [Range(10f, 300f)]

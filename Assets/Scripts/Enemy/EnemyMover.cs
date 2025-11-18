@@ -12,7 +12,6 @@ public class EnemyMover : MonoBehaviour
     private Transform _transform;
 
     public Spline Spline;
-    public event Action Finished;
 
     private void Awake()
     {

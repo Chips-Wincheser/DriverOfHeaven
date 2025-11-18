@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
 
     private void OnEnable()
     {
-		_carSpawner.CarSpawned+=SetTrackingPoint;
+        _carSpawner.CarSpawned+=SetTrackingPoint;
     }
 
     private void OnDisable()
@@ -39,7 +39,7 @@ public class CameraFollow : MonoBehaviour
 
 	private void SetTrackingPoint(Mover car)
 	{
-		_carTransform=car.transform;
+        _carTransform =car.transform;
         _initialCameraPosition = gameObject.transform.position;
         _initialCarPosition = _carTransform.position;
         _absoluteInitCameraPosition = _initialCameraPosition - _initialCarPosition;

@@ -7,7 +7,6 @@ public class RaceStarted : MonoBehaviour
     [SerializeField] private EnemyMover _enemyMover;
     [SerializeField] private int _countCircle;
 
-    private bool _enemyIsFinished;
     private int _circlePlayer;
     private int _circleEnemy;
 
@@ -18,13 +17,11 @@ public class RaceStarted : MonoBehaviour
         _circlePlayer = -1;
         _circleEnemy = -1;
         _carDetected.PlayerCircleCompleted += ChangeCountCircle;
-        _enemyMover.Finished+=EnemyFinish;
     }
 
     private void OnDisable()
     {
         _carDetected.PlayerCircleCompleted -= ChangeCountCircle;
-        _enemyMover.Finished-=EnemyFinish;
     }
 
     private void ChangeCountCircle(int id)
@@ -38,11 +35,6 @@ public class RaceStarted : MonoBehaviour
         {
             _circleEnemy++;
         }
-    }
-
-    private void EnemyFinish()
-    {
-        _enemyIsFinished=true;
     }
 
     private void Update()
