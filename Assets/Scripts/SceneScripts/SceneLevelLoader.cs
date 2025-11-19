@@ -3,18 +3,35 @@ using UnityEngine.SceneManagement;
 
 public class SceneLevelLoader : MonoBehaviour
 {
-    [SerializeField] private int _indexLevl;
+    [SerializeField] private GameLoader _gameLoader;
+
+    private int _indexLevl;
+
+    private void Start()
+    {
+        _indexLevl=_gameLoader.Level;
+    }
 
     public void LoaderScene()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
 
-        int nextSceneIndex = currentSceneIndex + _indexLevl;
-
-        if (nextSceneIndex < totalScenes)
+        if (_indexLevl < totalScenes)
         {
-            SceneManager.LoadScene(nextSceneIndex);
+            SceneManager.LoadScene(_indexLevl);
         }
+    }
+
+    public void LoaderMainMenu()
+    {
+        int nextSceneIndex = 0;
+        SceneManager.LoadScene(nextSceneIndex);
+    }
+
+    public void RestartScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        SceneManager.LoadScene(currentSceneIndex);
     }
 }

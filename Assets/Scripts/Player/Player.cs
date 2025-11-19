@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerPrefs.SetInt("SystemMove", 0);
         if (PlayerPrefs.GetInt("SystemMove") == 1)
         {
             foreach (var item in _touchInputs)

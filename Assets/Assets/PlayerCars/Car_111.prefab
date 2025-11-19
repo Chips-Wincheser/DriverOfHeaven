@@ -431,8 +431,6 @@ MonoBehaviour:
   _centerOfMass: {fileID: 2873133936726462586}
   _torque: 1000
   _maxAngle: 31.28
-  _maxBrake: 100000
-  _brakeSpeed: 10000
   _naturalDrag: 0.5
   _maxSpeedKmh: 40
 --- !u!114 &1700182087468241435

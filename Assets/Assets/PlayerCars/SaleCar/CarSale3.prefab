@@ -77,6 +77,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af27c79908f026498279c6c7306a342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 30000
+  _price: 16000
   _info: Something is written
   _canAds: 1

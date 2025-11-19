@@ -10,6 +10,9 @@ public class GameLoader : MonoBehaviour
     private void Awake()
     {
         LoadGame();
+        SaveSystem.SaveGame(Level, Money, 0, SystemMove);
+        PlayerPrefs.SetInt("Levle", 1);
+        Debug.Log(PlayerPrefs.GetInt("Levle"));
     }
 
     private void LoadGame()
@@ -19,7 +22,7 @@ public class GameLoader : MonoBehaviour
             Level = PlayerPrefs.GetInt("Levle");
             Money = PlayerPrefs.GetInt("Money");
             CarId = PlayerPrefs.GetInt("CarId");
-            CarId = PlayerPrefs.GetInt("SystemMove");
+            SystemMove = PlayerPrefs.GetInt("SystemMove");
         }
         else
         {

@@ -10,7 +10,7 @@ public class RaceStarted : MonoBehaviour
     private int _circlePlayer;
     private int _circleEnemy;
 
-    public event Action LevleEnded;
+    public event Action<bool> LevleEnded;
 
     private void OnEnable()
     {
@@ -39,10 +39,13 @@ public class RaceStarted : MonoBehaviour
 
     private void Update()
     {
-        if(_circleEnemy==_countCircle || _circlePlayer ==_countCircle)
+        if(_circlePlayer ==_countCircle)
         {
-            LevleEnded.Invoke();
-            GameStoper.StopTime();
+            LevleEnded.Invoke(true);
+        }
+        else if (_circleEnemy==_countCircle)
+        {
+            LevleEnded.Invoke(false);
         }
     }
 }
