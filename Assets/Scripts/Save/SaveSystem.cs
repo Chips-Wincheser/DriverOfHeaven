@@ -19,4 +19,11 @@ public static class SaveSystem
         PlayerPrefs.SetInt("CarId", 0);
         PlayerPrefs.SetInt("SystemMove",0);
     }
+
+    public static void SaveCarCharacteristics(int engien,int drag,int wheels)
+    {
+        PlayerPrefs.SetInt("Engine", engien);
+        PlayerPrefs.SetInt("Drag", drag);
+        PlayerPrefs.SetInt("Wheels", wheels);
+    }
 }

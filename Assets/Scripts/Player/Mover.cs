@@ -34,6 +34,7 @@ public class Mover : MonoBehaviour
 
     private void Start()
     {
+        EngineUpgrade();
         _rigidbody.centerOfMass=_centerOfMass.localPosition;
     }
 
@@ -83,6 +84,16 @@ public class Mover : MonoBehaviour
             {
                 wheel.brakeTorque = _currentBrake;
             }
+        }
+    }
+
+    private void EngineUpgrade()
+    {
+        int Upgrade = PlayerPrefs.GetInt("Engine");
+
+        for (int i = 0; i < Upgrade; i++)
+        {
+            _maxSpeedKmh+=5;
         }
     }
 

@@ -27,7 +27,7 @@ public class LevelCompleteHandlers : MonoBehaviour
     {
         if(PlayerIsWin)
         {
-            _LoseMenu.gameObject.SetActive(true);
+            _WinMenu.gameObject.SetActive(true);
             EditVariables();
             GameStoper.StopTime();
         }

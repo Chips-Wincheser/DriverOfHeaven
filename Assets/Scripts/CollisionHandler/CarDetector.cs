@@ -5,7 +5,6 @@ public class CarDetector : MonoBehaviour
 {
     public event Action<int> PlayerCircleCompleted;
     public event Action PlayerLefted;
-    public event Action<int> EnemyCircleCompleted;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -16,7 +15,7 @@ public class CarDetector : MonoBehaviour
 
         if(collision.gameObject.TryGetComponent<EnemyMover>(out EnemyMover enemy))
         {
-            EnemyCircleCompleted?.Invoke(0);
+            PlayerCircleCompleted?.Invoke(0);
         }
     }
 
