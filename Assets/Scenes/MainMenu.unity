@@ -5896,6 +5896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameLoader: {fileID: 913119733}
+  _indexLevl: 1
 --- !u!1 &1079310225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7727,6 +7728,7 @@ GameObject:
   - component: {fileID: 1409293137}
   - component: {fileID: 1409293136}
   - component: {fileID: 1409293135}
+  - component: {fileID: 1409293138}
   m_Layer: 5
   m_Name: AddMoney
   m_TagString: Untagged
@@ -7836,6 +7838,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409293133}
   m_CullTransparentMesh: 1
+--- !u!114 &1409293138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409293133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43ce80af4b6d69b46a7a720a1dc4906c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1409293136}
+  _offWindows:
+  - {fileID: 1372703538}
+  - {fileID: 1830126950}
+  - {fileID: 2037335727}
+  - {fileID: 1511785017}
+  - {fileID: 961722293}
+  _onWindows:
+  - {fileID: 359800723}
 --- !u!1 &1413778044
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class GameStateInitializer : MonoBehaviour
         _textMoney.text=_gameLoader.Money.ToString();
         _textLevle.text=_gameLoader.Level.ToString();
 
-        for (int i = 0; i < _gameLoader.Level; i++)
+        for (int i = 0; i < _gameLoader.Level-1; i++)
         {
             if (ColorUtility.TryParseHtmlString("#49E50E", out Color newColor))
             {

@@ -15,8 +15,7 @@ public class GameLoader : MonoBehaviour
         Time.timeScale = 1f;
         LoadGame();
         LoadCarSystem();
-        SaveSystem.SaveGame(Level, 99999, 0, SystemMove);
-        PlayerPrefs.SetInt("Levle", 1);
+        SaveSystem.SaveGame(1, Money, 0, SystemMove);
     }
 
     private void LoadGame()
