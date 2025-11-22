@@ -79,4 +79,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _price: 0
   _info: Your very first car, but a reliable one. It should be like this...
-  _canAds: 0
+  _canAds: 1

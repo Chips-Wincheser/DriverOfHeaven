@@ -4,7 +4,6 @@ using UnityEngine;
 public class RaceStarted : MonoBehaviour
 {
     [SerializeField] private CarDetector _carDetected;
-    [SerializeField] private EnemyMover _enemyMover;
     [SerializeField] private int _countCircle;
 
     private int _circlePlayer;

@@ -5,30 +5,23 @@ public class SceneLevelLoader : MonoBehaviour
 {
     [SerializeField] private GameLoader _gameLoader;
     [SerializeField] private int _indexLevl;
-    
-    private int _countlevelToNextLocation=4;
+
+    [SerializeField] private int firstSceneIndex = 1;
+    [SerializeField] private int scenesCount = 4;
 
     public void LoaderScene()
     {
-        if (_gameLoader.Level<_countlevelToNextLocation)
-        {
-            int totalScenes = SceneManager.sceneCountInBuildSettings;
+        int level = _gameLoader.Level;
 
-            if (_indexLevl < totalScenes)
-            {
-                SceneManager.LoadScene(_indexLevl);
-            }
-        }
-        else
-        {
-            _indexLevl++;
-            _countlevelToNextLocation+=4;
-        }
+        int locationIndex = (level - 1) / 4;
+
+        int sceneToLoad = firstSceneIndex + (locationIndex % scenesCount);
+
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void LoaderMainMenu()
     {
-        Debug.Log("SSS");
         int nextSceneIndex = 0;
         SceneManager.LoadScene(nextSceneIndex);
     }
@@ -37,5 +30,15 @@ public class SceneLevelLoader : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    public void LoadSpecificScene()
+    {
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
+
+        if (_indexLevl < totalScenes)
+        {
+            SceneManager.LoadScene(_indexLevl);
+        }
     }
 }

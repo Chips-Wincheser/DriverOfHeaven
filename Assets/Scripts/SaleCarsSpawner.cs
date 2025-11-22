@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaleCarsSpawner : MonoBehaviour
 {
@@ -7,9 +8,10 @@ public class SaleCarsSpawner : MonoBehaviour
     [SerializeField] private Transform _spawnCarPoint;
     [SerializeField] private TMP_Text _infoText;
     [SerializeField] private TMP_Text _price;
+    [SerializeField] private Button _buttonBuy;
 
-    private int _indexCar=0;
-    private SkinInfo _showCar;
+    public int IndexCar { get; private set; }
+    public SkinInfo SelectCar { get; private set; }
 
     private void OnEnable()
     {
@@ -18,29 +20,42 @@ public class SaleCarsSpawner : MonoBehaviour
 
     private void OnDisable()
     {
-        Destroy(_showCar.gameObject);
+        Destroy(SelectCar.gameObject);
     }
 
-    public void SwitchCar(int SwitchCount)
+    private void Awake()
     {
-        if ((_indexCar+SwitchCount)<_cars.Length && (_indexCar+SwitchCount)>=0)
-        {
-            _indexCar+=SwitchCount;
-            ShowCar();
-            
-        }
+        IndexCar=0;
     }
 
     private void ShowCar()
     {
-        Destroy(_showCar.gameObject);
+        Destroy(SelectCar.gameObject);
         SpawnCar();    
     }
 
     private void SpawnCar()
     {
-        _showCar = Instantiate(_cars[_indexCar], _spawnCarPoint.position, Quaternion.Euler(0, -130f, 0));
-        _infoText.text= _cars[_indexCar].Info.ToString();
-        _price.text = _cars[_indexCar].Price.ToString();
+        SelectCar = Instantiate(_cars[IndexCar], _spawnCarPoint.position, Quaternion.Euler(0, -130f, 0));
+        _infoText.text= _cars[IndexCar].Info.ToString();
+        _price.text = _cars[IndexCar].Price.ToString();
+
+        if (_cars[IndexCar].CanAds)
+        {
+            _buttonBuy.gameObject.SetActive(true);
+        }
+        else
+        {
+            _buttonBuy.gameObject.SetActive(false);
+        }
+    }
+
+    public void SwitchCar(int SwitchCount)
+    {
+        if ((IndexCar+SwitchCount)<_cars.Length && (IndexCar+SwitchCount)>=0)
+        {
+            IndexCar+=SwitchCount;
+            ShowCar();
+        }
     }
 }

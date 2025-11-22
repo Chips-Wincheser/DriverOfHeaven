@@ -13,7 +13,13 @@ public class UpgraderCar : MonoBehaviour
 
     private void OnEnable()
     {
+        SaveSystem.SaveCarCharacteristics(0, 0, 0);
         UpdatePrice();
+
+        if (_maximumNumberImprovements==_typeImprovement)
+        {
+            _textPrice.text="Sold out";
+        }
     }
 
     public void Improvements()

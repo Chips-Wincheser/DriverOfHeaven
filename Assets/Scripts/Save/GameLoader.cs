@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameLoader : MonoBehaviour
@@ -10,12 +11,14 @@ public class GameLoader : MonoBehaviour
     public int Drag { get; private set; }
     public int Wheels { get; private set; }
 
+    public event Action MoneyChenged;
+
     private void Awake()
     {
         Time.timeScale = 1f;
         LoadGame();
         LoadCarSystem();
-        SaveSystem.SaveGame(1, Money, 0, SystemMove);
+        SaveSystem.SaveGame(10, 50000, 6, SystemMove);
     }
 
     private void LoadGame()
@@ -50,5 +53,7 @@ public class GameLoader : MonoBehaviour
     public void Purchase(int price)
     {
         Money-=price;
+        SaveSystem.SaveGame(Level,Money,CarId, SystemMove);
+        MoneyChenged?.Invoke();
     }
 }

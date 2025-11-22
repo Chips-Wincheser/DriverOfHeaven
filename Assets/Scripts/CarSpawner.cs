@@ -5,6 +5,7 @@ using UnityEngine;
 public class CarSpawner : MonoBehaviour
 {
     [SerializeField] private Mover[] _carsPlayer;
+    [SerializeField] private Mover[] _carsMultiPlayer;
     [SerializeField] private GameLoader _gameLoader;
     [SerializeField] private Spline _splineEnemy;
     [SerializeField] private EnemyMover[] _carsEnemy;
@@ -14,10 +15,18 @@ public class CarSpawner : MonoBehaviour
     private void Start()
     {
         Mover car = Instantiate(_carsPlayer[_gameLoader.CarId],transform.position,Quaternion.identity);
+        
+        if (_carsMultiPlayer.Length==0)
+        {
+            EnemyMover carEnemy = Instantiate(_carsEnemy[_gameLoader.Level-1], _splineEnemy.transform.position, Quaternion.identity);
+            carEnemy.Spline = _splineEnemy;
+            carEnemy.transform.SetParent(_splineEnemy.transform);
+        }
+        else
+        {
 
-        EnemyMover carEnemy = Instantiate(_carsEnemy[_gameLoader.Level-1], _splineEnemy.transform.position, Quaternion.identity);
-        carEnemy.Spline = _splineEnemy;
-        carEnemy.transform.SetParent(_splineEnemy.transform);
+        }
+
         CarSpawned?.Invoke(car);
     }
 }

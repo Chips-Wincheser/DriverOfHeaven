@@ -79,6 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af27c79908f026498279c6c7306a342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: 100000
-  _info: 
-  _canAds: 0
+  _price: 26000
+  _info: They say his name is Bumble Bee.
+  CanAds: 1

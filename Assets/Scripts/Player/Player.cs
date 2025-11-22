@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerInput _input;
     [SerializeField] private Mover _mover;
     [SerializeField] private DriftHandler _driftHandler;
+    [SerializeField] private bool _isMultiplayerCar=false;
 
     private float _vertical;
     private float _horizontal;
@@ -14,10 +15,11 @@ public class Player : MonoBehaviour
 
     public event Action Drifted;
     public event Action UnDrifted;
+    public event Action<float> Rided;
 
     private void OnEnable()
     {
-        if (PlayerPrefs.GetInt("SystemMove") == 1)
+        if (PlayerPrefs.GetInt("SystemMove") == 1 && _isMultiplayerCar!=true)
         {
             foreach (var item in _touchInputs)
             {
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        if (PlayerPrefs.GetInt("SystemMove") == 1)
+        if (PlayerPrefs.GetInt("SystemMove") == 1 && _isMultiplayerCar!=true)
         {
             foreach (var item in _touchInputs)
             {
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
     private void OnRides(float vertical, float horizontal)
     {
         _mover.ProcessMovement(vertical, horizontal);
+        Rided?.Invoke(vertical);
     }
 
     private void OnButtonPressed(TouchButtonType buttonType)
