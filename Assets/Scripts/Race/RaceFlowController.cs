@@ -1,10 +1,13 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class RaceFlowController : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _text;
+
     private WaitForSecondsRealtime _WaitForSeconds;
-    private int _delay=2;
+    private int _delay=1;
 
     private void Awake()
     {
@@ -13,7 +16,7 @@ public class RaceFlowController : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(Countdown());
+        StartCoroutine(Countdown());
     }
 
     IEnumerator Countdown()
@@ -22,11 +25,11 @@ public class RaceFlowController : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            Debug.Log(i);
+            _text.text =(i+1).ToString();
             yield return _WaitForSeconds;
         }
         
-        Debug.Log("Done even with timeScale = 0");
         Time.timeScale = 1f;
+        _text.gameObject.SetActive(false);
     }
 }

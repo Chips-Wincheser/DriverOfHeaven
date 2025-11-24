@@ -23,6 +23,8 @@ public class GameStateInitializer : MonoBehaviour
 
     private void Start()
     {
+        CarSelectionData.Instance.CarPlayer1 = -1;
+        CarSelectionData.Instance.CarPlayer2 = -1;
         _textMoney.text = _gameLoader.Money.ToString();
         _textLevle.text = _gameLoader.Level.ToString();
         ColorUtility.TryParseHtmlString("#E5B90E", out Color baseColor);

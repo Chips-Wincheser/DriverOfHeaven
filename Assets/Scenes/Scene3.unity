@@ -97,7 +97,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 28a7e7c8b8233de4cba3b5f1305f3cc5, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1265,6 +1265,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7804032703551813816, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_Size.x
+      value: 14.908605
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804032703551813816, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_Center.x
+      value: 7.06187
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1783,6 +1791,14 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804032703551813816, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_Size.x
+      value: 12.111716
+      objectReference: {fileID: 0}
+    - target: {fileID: 7804032703551813816, guid: 52f3bf47c9c62af4588469ff668b805c, type: 3}
+      propertyPath: m_Center.x
+      value: -5.663426
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8886,6 +8902,10 @@ PrefabInstance:
     - target: {fileID: 3912833515189992952, guid: b76afddc8fb16bd45843d54a8743610a, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343201730168661082, guid: b76afddc8fb16bd45843d54a8743610a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 4530808296786668929, guid: b76afddc8fb16bd45843d54a8743610a, type: 3}
       propertyPath: _splineEnemy

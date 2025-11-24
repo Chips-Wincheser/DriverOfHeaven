@@ -7,9 +7,9 @@ public class PlayerInput : MonoBehaviour
     private const string Horizontal = "Horizontal";
     private const string Vertical = "Vertical";
 
-    [SerializeField] private bool _isMultiplayerCar=false;
-    
     private KeyCode CodeKeySpace = KeyCode.Space;
+    
+    public bool IsMultiplayerCar=false;
 
     public event Action Brakeing;
     public event Action UnBrakeing;
@@ -17,7 +17,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Start()
     {
-        if (_isMultiplayerCar)
+        if (IsMultiplayerCar)
         {
             CodeKeySpace=CodeKeyRightAlt;
         }
@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (_isMultiplayerCar)
+        if (IsMultiplayerCar)
         {
             float horizontal = 0;
             float vertical = 0;

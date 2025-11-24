@@ -16,9 +16,9 @@ public class GameLoader : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1f;
+        SaveSystem.SaveGame(14, Money, CarId, SystemMove);
         LoadGame();
         LoadCarSystem();
-        SaveSystem.SaveGame(10, 50000, 6, SystemMove);
     }
 
     private void LoadGame()

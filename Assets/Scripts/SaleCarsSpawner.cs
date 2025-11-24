@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,9 +10,12 @@ public class SaleCarsSpawner : MonoBehaviour
     [SerializeField] private TMP_Text _infoText;
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _buttonBuy;
+    [SerializeField] private GameLoader _loader;
 
     public int IndexCar { get; private set; }
     public SkinInfo SelectCar { get; private set; }
+
+    public event Action<bool> AdShowed;
 
     private void OnEnable()
     {
@@ -47,6 +51,21 @@ public class SaleCarsSpawner : MonoBehaviour
         else
         {
             _buttonBuy.gameObject.SetActive(false);
+        }
+
+        int price = SelectCar.Price;
+        int money = _loader.Money;
+
+        int missing = price - money;
+        int threshold = (int)(price * 0.25f);
+
+        if (missing <= threshold)
+        {
+            AdShowed?.Invoke(true);
+        }
+        else
+        {
+            AdShowed?.Invoke(false);
         }
     }
 

@@ -1,12 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonBuyCar : ButtonBase
 {
     [SerializeField] private GameLoader _loader;
     [SerializeField] private SaleCarsSpawner _saleCarsSpawner;
     [SerializeField] private TMP_Text _textPrice;
-
+    [SerializeField] private GameObject _windowBuy;
     protected override void HandleButtonClick()
     {
 
@@ -16,6 +17,7 @@ public class ButtonBuyCar : ButtonBase
         }
         else
         {
+            _windowBuy.gameObject.SetActive(true);
             _loader.Purchase(_saleCarsSpawner.SelectCar.Price);
             SaveSystem.SaveGame(_loader.Level,_loader.Money,_saleCarsSpawner.IndexCar,_loader.SystemMove);
             _saleCarsSpawner.SelectCar.CanAds = false;

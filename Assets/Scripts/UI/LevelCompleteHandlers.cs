@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using YG;
 
 public class LevelCompleteHandlers : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class LevelCompleteHandlers : MonoBehaviour
         }
         else
         {
+            YG2.InterstitialAdvShow();
             _LoseMenu.gameObject.SetActive(true);
             GameStoper.StopTime();
         }
