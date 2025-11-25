@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 
 public class GameLoader : MonoBehaviour
 {
@@ -16,9 +17,10 @@ public class GameLoader : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1f;
-        SaveSystem.SaveGame(14, Money, CarId, SystemMove);
+        SaveSystem.SaveGame(Level, Money, CarId, SystemMove);
         LoadGame();
         LoadCarSystem();
+        YG2.SetLeaderboard("TOP", Level);
     }
 
     private void LoadGame()
@@ -52,6 +54,7 @@ public class GameLoader : MonoBehaviour
 
     public void Purchase(int price)
     {
+        LoadGame();
         Money-=price;
         SaveSystem.SaveGame(Level,Money,CarId, SystemMove);
         MoneyChenged?.Invoke();

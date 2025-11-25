@@ -22,10 +22,10 @@ public class ButtonBuyCarForAd : ButtonBase
             SaveSystem.SaveGame(_loader.Level, _loader.Money, _saleCarsSpawner.IndexCar, _loader.SystemMove);
         }
 
-        if(_loader==null)
+        if(_windowBuy==null)
         {
+            SaveSystem.SaveGame(_loader.Level, (_loader.Money+501), _loader.CarId, _loader.SystemMove);
             _loader.Purchase(1);
-            SaveSystem.SaveGame(_loader.Level, _loader.Money+501, _saleCarsSpawner.IndexCar, _loader.SystemMove);
         }
 
     }

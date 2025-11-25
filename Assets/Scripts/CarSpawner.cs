@@ -20,7 +20,7 @@ public class CarSpawner : MonoBehaviour
         if (CarSelectionData.Instance.CarPlayer1==-1 && CarSelectionData.Instance.CarPlayer2==-1)
         {
             _car = Instantiate(_carsPlayer[_gameLoader.CarId],transform.position,Quaternion.identity);
-            EnemyMover carEnemy = Instantiate(_carsEnemy[_gameLoader.Level-1], _splineEnemy.transform.position, Quaternion.identity);
+            EnemyMover carEnemy = Instantiate(_carsEnemy[_gameLoader.Level], _splineEnemy.transform.position, Quaternion.identity);
             carEnemy.Spline = _splineEnemy;
             carEnemy.transform.SetParent(_splineEnemy.transform);
 

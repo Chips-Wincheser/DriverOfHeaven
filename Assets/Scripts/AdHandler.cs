@@ -1,7 +1,7 @@
 using UnityEngine;
 using YG;
 
-public class AdHandler : MonoBehaviour
+public class AdDubleMoneyHandler : MonoBehaviour
 {
     private void OnEnable()
     {

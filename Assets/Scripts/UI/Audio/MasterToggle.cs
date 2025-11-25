@@ -1,12 +1,15 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class MasterToggle : MonoBehaviour
 {
-    [SerializeField] private AudioListener _listener;
+    [SerializeField] private AudioMixer _masterMixer;
     [SerializeField] private Button _button;
 
-    private bool _isEnable=false;
+    private bool _isMuted = false;
+    private float _volumeOn = 0f;
+    private float _volumeOff = -80f;
 
     protected void OnEnable()
     {
@@ -22,7 +25,15 @@ public class MasterToggle : MonoBehaviour
 
     private void HandleButtonClick()
     {
-        _isEnable=!_isEnable;
-        _listener.enabled = !_isEnable;
+        _isMuted = !_isMuted;
+
+        if (_isMuted)
+        {
+            _masterMixer.SetFloat("Master", _volumeOff);
+        }
+        else
+        {
+            _masterMixer.SetFloat("Master", _volumeOn);
+        }
     }
 }

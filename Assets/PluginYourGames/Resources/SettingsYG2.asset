@@ -135,11 +135,17 @@ MonoBehaviour:
       it: 
       de: 
       hi: 
+  InterstitialAdv:
+    showFirstAdv: 0
+    interAdvInterval: 60
+    postponeCallByFail: 0
+    postponeCallTimer: 10
+    labelAdvSimLabel: 0
   Leaderboards:
     enable: 1
     saveScoreAnonymousPlayers: 1
     listLBSim:
-    - technoName: test
+    - technoName: TOP
       entries: '1. Max: 10
 
         2. Masha: 15
@@ -292,6 +298,9 @@ MonoBehaviour:
         extraData: 
   Localization:
     setLanguageMod: 1
+  RewardedAdv:
+    skipInterAdvAfterReward: 0
+    labelAdvSimLabel: 0
   Basic:
     platform: {fileID: 11400000, guid: fabe82a4ab034324eb452cc7109f6d19, type: 2}
     autoApplySettings: 1
@@ -345,7 +354,11 @@ MonoBehaviour:
   platformInfo:
     ownHost: 0
   platformToggles:
+    showFirstAdv: 0
+    interAdvInterval: 0
+    postponeCallByFail: 0
     setLanguageMod: 0
+    skipInterAdvAfterReward: 0
     autoPauseGame: 0
     selectWebGLTemplate: 1
     runInBackground: 1
