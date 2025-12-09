@@ -7,7 +7,6 @@ public class GameLoader : MonoBehaviour
     public int Level {  get; private set; }
     public int Money { get; private set; }
     public int CarId { get; private set; }
-    public int SystemMove { get; private set; }
     public int Engine { get; private set; }
     public int Drag { get; private set; }
     public int Wheels { get; private set; }
@@ -17,9 +16,10 @@ public class GameLoader : MonoBehaviour
     private void Awake()
     {
         Time.timeScale = 1f;
-        SaveSystem.SaveGame(Level, Money, CarId, SystemMove);
         LoadGame();
         LoadCarSystem();
+        SaveSystem.SaveGame(Level, Money, CarId);
+        LoadGame();
         YG2.SetLeaderboard("TOP", Level);
     }
 
@@ -30,7 +30,6 @@ public class GameLoader : MonoBehaviour
             Level = PlayerPrefs.GetInt("Levle");
             Money = PlayerPrefs.GetInt("Money");
             CarId = PlayerPrefs.GetInt("CarId");
-            SystemMove = PlayerPrefs.GetInt("SystemMove");
         }
         else
         {
@@ -56,7 +55,7 @@ public class GameLoader : MonoBehaviour
     {
         LoadGame();
         Money-=price;
-        SaveSystem.SaveGame(Level,Money,CarId, SystemMove);
+        SaveSystem.SaveGame(Level,Money,CarId);
         MoneyChenged?.Invoke();
     }
 }

@@ -7,7 +7,6 @@ public class SaleCarsSpawner : MonoBehaviour
 {
     [SerializeField] private SkinInfo[] _cars;
     [SerializeField] private Transform _spawnCarPoint;
-    [SerializeField] private TMP_Text _infoText;
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _buttonBuy;
     [SerializeField] private GameLoader _loader;
@@ -41,8 +40,7 @@ public class SaleCarsSpawner : MonoBehaviour
     private void SpawnCar()
     {
         SelectCar = Instantiate(_cars[IndexCar], _spawnCarPoint.position, Quaternion.Euler(0, -130f, 0));
-        _infoText.text= _cars[IndexCar].Info.ToString();
-        _price.text = _cars[IndexCar].Price.ToString();
+        _price.text = SelectCar.Price+" $".ToString();
 
         if (_cars[IndexCar].CanAds)
         {

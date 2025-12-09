@@ -1,8 +1,11 @@
 using System;
 using UnityEngine;
+using YG;
 
 public class Player : MonoBehaviour
 {
+    private const string DeviceNamePhone = "mobile";
+
     [SerializeField] private TouchInput[] _touchInputs;
     [SerializeField] private PlayerInput _input;
     [SerializeField] private Mover _mover;
@@ -19,7 +22,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        if (PlayerPrefs.GetInt("SystemMove") == 1 && _isMultiplayerCar!=true)
+        if (YG2.envir.deviceType == DeviceNamePhone && _isMultiplayerCar!=true)
         {
             foreach (var item in _touchInputs)
             {
@@ -36,7 +39,7 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        if (PlayerPrefs.GetInt("SystemMove") == 1 && _isMultiplayerCar!=true)
+        if (YG2.envir.deviceType == DeviceNamePhone && _isMultiplayerCar!=true)
         {
             foreach (var item in _touchInputs)
             {

@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ButtonBuyCar : ButtonBase
 {
@@ -19,7 +18,7 @@ public class ButtonBuyCar : ButtonBase
         {
             _windowBuy.gameObject.SetActive(true);
             _loader.Purchase(_saleCarsSpawner.SelectCar.Price);
-            SaveSystem.SaveGame(_loader.Level,_loader.Money,_saleCarsSpawner.IndexCar,_loader.SystemMove);
+            SaveSystem.SaveGame(_loader.Level,_loader.Money,_saleCarsSpawner.IndexCar);
             _saleCarsSpawner.SelectCar.CanAds = false;
         }
     }

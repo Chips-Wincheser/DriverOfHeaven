@@ -29,7 +29,7 @@ public class UpgraderCar : MonoBehaviour
         if (_maximumNumberImprovements>_typeImprovement && _gameLoader.Money>=_price)
         {
             SaveImprovedStat();
-            SaveSystem.SaveGame(_gameLoader.Level,_gameLoader.Money-_price,_gameLoader.CarId,_gameLoader.SystemMove);
+            SaveSystem.SaveGame(_gameLoader.Level,_gameLoader.Money-_price,_gameLoader.CarId);
             _gameLoader.Purchase(_price);
             _gameLoader.LoadCarSystem();
             UpdatePrice();

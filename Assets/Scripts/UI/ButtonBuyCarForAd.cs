@@ -19,12 +19,12 @@ public class ButtonBuyCarForAd : ButtonBase
             _windowBuy.gameObject.SetActive(true);
             _loader.Purchase(_loader.Money);
             _saleCarsSpawner.SelectCar.CanAds = false;
-            SaveSystem.SaveGame(_loader.Level, _loader.Money, _saleCarsSpawner.IndexCar, _loader.SystemMove);
+            SaveSystem.SaveGame(_loader.Level, _loader.Money, _saleCarsSpawner.IndexCar);
         }
 
         if(_windowBuy==null)
         {
-            SaveSystem.SaveGame(_loader.Level, (_loader.Money+501), _loader.CarId, _loader.SystemMove);
+            SaveSystem.SaveGame(_loader.Level, (_loader.Money+501), _loader.CarId);
             _loader.Purchase(1);
         }
 

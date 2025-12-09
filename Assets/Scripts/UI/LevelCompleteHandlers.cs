@@ -13,6 +13,7 @@ public class LevelCompleteHandlers : MonoBehaviour
     [SerializeField] private TMP_Text _textLevle;
 
     private int _moneyFinish=2000;
+    private bool _isHandled = false;
 
     private void OnEnable()
     {
@@ -26,23 +27,29 @@ public class LevelCompleteHandlers : MonoBehaviour
 
     private void ShowFinishMenu(bool PlayerIsWin)
     {
-        if(PlayerIsWin)
+        if (_isHandled==false)
         {
-            _WinMenu.gameObject.SetActive(true);
-            EditVariables();
-            GameStoper.StopTime();
-        }
-        else
-        {
-            YG2.InterstitialAdvShow();
-            _LoseMenu.gameObject.SetActive(true);
-            GameStoper.StopTime();
+            if (PlayerIsWin)
+            {
+                _WinMenu.gameObject.SetActive(true);
+                EditVariables();
+                GameStoper.StopTime();
+                _isHandled=true;
+            }
+            else
+            {
+                YG2.InterstitialAdvShow();
+                _LoseMenu.gameObject.SetActive(true);
+                GameStoper.StopTime();
+                _isHandled=true;
+            }
         }
     }
 
     private void EditVariables()
     {
-        SaveSystem.SaveGame(_gameLoader.Level+1,_gameLoader.Money+_moneyFinish, _gameLoader.CarId,_gameLoader.SystemMove);
+        Debug.Log("PLayer win");
+        SaveSystem.SaveGame(_gameLoader.Level+1,_gameLoader.Money+_moneyFinish, _gameLoader.CarId);
         _textMoney.text=(_gameLoader.Money+_moneyFinish).ToString()+"$";
         _textLevle.text=(_gameLoader.Level+1).ToString();
     }

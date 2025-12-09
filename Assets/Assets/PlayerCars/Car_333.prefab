@@ -734,8 +734,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.0201526, y: 0.8467128, z: 4.3797283}
-  m_Center: {x: 0.00264287, y: 0.5365051, z: 0.036333084}
+  m_Size: {x: 2.0201526, y: 0.6485137, z: 4.3797283}
+  m_Center: {x: 0.00264287, y: 0.6356047, z: 0.036333084}
 --- !u!114 &9064502029404313658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b537cb03b6312b46841034006d82fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isMultiplayerCar: 0
+  IsMultiplayerCar: 0
 --- !u!114 &1673322414617635437
 MonoBehaviour:
   m_ObjectHideFlags: 0

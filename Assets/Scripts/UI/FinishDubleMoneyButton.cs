@@ -7,7 +7,7 @@ public class FinishDubleMoneyButton : ButtonBase
     [SerializeField] private GameLoader _gameLoader;
     [SerializeField] private TMP_Text _text;
 
-    private int _rewardMoney = 2000;
+    private int _rewardMoney = 4000;
 
     protected override void HandleButtonClick()
     {
@@ -16,7 +16,7 @@ public class FinishDubleMoneyButton : ButtonBase
 
     private void Reward()
     {
-        SaveSystem.SaveGame(_gameLoader.Level, (_gameLoader.Money+_rewardMoney), _gameLoader.CarId, _gameLoader.SystemMove);
-        _text.text= (_gameLoader.Money+_rewardMoney).ToString();
+        SaveSystem.SaveGame(_gameLoader.Level, (_gameLoader.Money+_rewardMoney), _gameLoader.CarId);
+        _text.text= (_gameLoader.Money+_rewardMoney).ToString()+"$";
     }
 }
