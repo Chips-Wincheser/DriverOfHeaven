@@ -4,7 +4,7 @@ using YG;
 
 public class Player : MonoBehaviour
 {
-    private const string DeviceNamePhone = "mobile";
+    private const int DeviceIdPhone = 1;
 
     [SerializeField] private TouchInput[] _touchInputs;
     [SerializeField] private PlayerInput _input;
@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private DriftHandler _driftHandler;
     [SerializeField] private bool _isMultiplayerCar=false;
 
+    private int _platform;
     private float _vertical;
     private float _horizontal;
     private bool _isDrifting=false;
@@ -22,7 +23,9 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        if (YG2.envir.deviceType == DeviceNamePhone && _isMultiplayerCar!=true)
+        _platform=PlayerPrefs.GetInt("PlatformId");
+
+        if (_platform == DeviceIdPhone && _isMultiplayerCar!=true)
         {
             foreach (var item in _touchInputs)
             {
@@ -39,7 +42,7 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        if (YG2.envir.deviceType == DeviceNamePhone && _isMultiplayerCar!=true)
+        if (_platform == DeviceIdPhone && _isMultiplayerCar!=true)
         {
             foreach (var item in _touchInputs)
             {

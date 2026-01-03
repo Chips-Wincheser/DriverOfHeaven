@@ -1,9 +1,10 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ViewSpeed : MonoBehaviour
 {
-    [SerializeField] private Text _text;
+    [SerializeField] private TMP_Text _text;
     [SerializeField] private CarSpawner _carSpawner;
 
     private Mover _mover;

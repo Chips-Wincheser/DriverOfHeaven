@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -97,11 +97,11 @@ public class Mover : MonoBehaviour
         }
     }
 
-    public void ProcessMovement(float vertical , float horizontal)
+    public void ProcessMovement(float vertical, float horizontal)
     {
         _acceleration=vertical;
         _streering =horizontal;
-        
+
         if (vertical != 0f)
         {
             _currentBrake = 0f;

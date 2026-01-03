@@ -38,7 +38,6 @@ public class LevelCompleteHandlers : MonoBehaviour
             }
             else
             {
-                YG2.InterstitialAdvShow();
                 _LoseMenu.gameObject.SetActive(true);
                 GameStoper.StopTime();
                 _isHandled=true;
@@ -48,7 +47,6 @@ public class LevelCompleteHandlers : MonoBehaviour
 
     private void EditVariables()
     {
-        Debug.Log("PLayer win");
         SaveSystem.SaveGame(_gameLoader.Level+1,_gameLoader.Money+_moneyFinish, _gameLoader.CarId);
         _textMoney.text=(_gameLoader.Money+_moneyFinish).ToString()+"$";
         _textLevle.text=(_gameLoader.Level+1).ToString();

@@ -828,6 +828,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 830101966719392686}
     m_Modifications:
     - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8209986793444955794}
@@ -835,6 +851,14 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8209986793444955794}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ButtonDown
@@ -850,6 +874,14 @@ PrefabInstance:
     - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TouchInput, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4597129196982652256, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4597129196982652260, guid: ba7adce0955ba9047b407c0d6b28fdd1, type: 3}
       propertyPath: changeScaleOnPressed

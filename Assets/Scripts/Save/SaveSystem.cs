@@ -14,6 +14,7 @@ public static class SaveSystem
         PlayerPrefs.SetInt("Levle", 1);
         PlayerPrefs.SetInt("Money", 0);
         PlayerPrefs.SetInt("CarId", 0);
+        PlayerPrefs.SetInt("PlatformId", 0);
     }
 
     public static void SaveCarCharacteristics(int engien,int drag,int wheels)
@@ -22,4 +23,10 @@ public static class SaveSystem
         PlayerPrefs.SetInt("Drag", drag);
         PlayerPrefs.SetInt("Wheels", wheels);
     }
+
+    public static void SwitchPlatform(int platform)
+    {
+        //0-PC 1-Phone
+        PlayerPrefs.SetInt("PlatformId", platform);
+    } 
 }

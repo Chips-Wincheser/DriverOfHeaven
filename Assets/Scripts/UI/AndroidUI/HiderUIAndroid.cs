@@ -9,7 +9,7 @@ public class HiderUIAndroid : MonoBehaviour
     {
         _canvas = GetComponent<Canvas>();
 
-        if (PlayerPrefs.GetInt("SystemMove")==0)
+        if (PlayerPrefs.GetInt("PlatformId")==0)
         {
             _canvas.gameObject.SetActive(false);
         }
