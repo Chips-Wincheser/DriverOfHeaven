@@ -16,8 +16,10 @@ public class FinishDubleMoneyButton : ButtonBase
 
     private void Reward()
     {
+        YG2.PauseGame(true);
         SaveSystem.SaveGame(_gameLoader.Level, (_gameLoader.Money+_rewardMoney), _gameLoader.CarId);
         _text.text= (_gameLoader.Money+_rewardMoney).ToString()+"$";
         _button.gameObject.SetActive(false);
+        YG2.PauseGame(false);
     }
 }
